@@ -1,0 +1,15 @@
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\bin\Debug\netstandard2.0\ExpenseTracker.deps.json
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\bin\Debug\netstandard2.0\ExpenseTracker.dll
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\bin\Debug\netstandard2.0\ref\ExpenseTracker.dll
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\bin\Debug\netstandard2.0\ExpenseTracker.pdb
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ExpenseTracker.csprojAssemblyReference.cache
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\View\ExpenseDetailPage.xaml.g.cs
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\View\MainPage.xaml.g.cs
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ExpenseTracker.AssemblyInfoInputs.cache
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ExpenseTracker.AssemblyInfo.cs
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ExpenseTracker.csproj.CoreCompileInputs.cache
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ExpenseTracker.dll
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ref\ExpenseTracker.dll
+C:\Users\gaming\Desktop\Uni 2020-21\Mobile\Assessment2\ExpenseTracker\ExpenseTracker\obj\Debug\netstandard2.0\ExpenseTracker.pdb

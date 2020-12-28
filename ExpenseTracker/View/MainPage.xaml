@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviour="clr-namespace:ExpenseTracker.Behaviour"
+             x:Name="mainPage"
+             x:Class="ExpenseTracker.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddExpenseCommand}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Label Text="Only show claimed expenses"/>
+        <Switch x:Name="claimedSwitch" HorizontalOptions="Start" IsToggled="False"/>
+        <ListView x:Name="expenseListView" ItemsSource="{Binding Expenses}" HasUnevenRows="True" SeparatorColor="Gray" ItemSelected="OnExpenseSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ImageCell x:Name="listItem" ImageSource="{Binding ReceiptImage}"
+                           Text="{Binding Title}"
+                           Detail="{Binding Claimed}"
+                           DetailColor="Black"
+                           TextColor="Red">
+                    <ImageCell.ContextActions>
+                        <MenuItem Text="Delete"
+                                  IsDestructive="True"
+                                  Command="{Binding Source={x:Reference mainPage}, Path=ViewModel.DeleteExpenseCommand}"
+                                  CommandParameter="{Binding .}" />
+                            <MenuItem Text="Mark As Paid"
+                                    Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.DeleteCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </ImageCell.ContextActions>
+                </ImageCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
+</ContentPage>

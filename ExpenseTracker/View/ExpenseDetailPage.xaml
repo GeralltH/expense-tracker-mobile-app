@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpenseTracker.View.ExpenseDetailPage">
+    <TableView HasUnevenRows="True" Intent="Form" Margin="16, 0">
+        <TableRoot>
+            <TableSection Title="Expense Details">
+                
+                <EntryCell Label="Title" Text="{Binding Title}" />
+
+                <ViewCell>
+                    <StackLayout x:Name="claimedLayout">
+                        <Label Text="Claimed?"/>
+                        <Switch x:Name="claimedSwitch" IsToggled="{Binding Claimed}" HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                </ViewCell>
+
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="VAT Component?"/>
+                        <Switch IsToggled="{Binding VATComponent}" HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                </ViewCell>
+
+                <EntryCell x:Name="receiptAmount" Label="Receipt Amount: £" Keyboard="Numeric" Text="{Binding Amount}" />
+
+                <ViewCell>
+                    <StackLayout IsVisible="{Binding VATComponent}">
+                        <Label x:Name="VATAmount" Text="{Binding Amount, StringFormat='Excl. VAT: 0.8 * {0:F0}'}" Margin="18,20,0,20"/>
+                    </StackLayout>
+                </ViewCell>
+
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="Receipt Date"/>
+                        <DatePicker MinimumDate="01/01/2000" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding ReceiptDate}" />
+                    </StackLayout>
+                </ViewCell>
+                
+                <ViewCell >
+                    <StackLayout x:Name="dateAddedLayout">
+                        <Label Text="Date Added"/>
+                        <DatePicker x:Name="dateAddedPicker" MinimumDate="{x:Static sys:DateTime.Now}" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DateAdded}"/>
+                    </StackLayout>
+                </ViewCell>
+                
+                <ViewCell>
+                    <StackLayout x:Name="datePaidLayout">
+                        <Label Text="Date Paid"/>
+                        <Label x:Name="unpaid" Text="Unpaid" FontSize="Large" IsVisible="false"/>
+                        <DatePicker x:Name="datePaidPicker" MinimumDate="01/01/2000" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DatePaid}"/>
+                    </StackLayout>
+                </ViewCell>
+                
+                <EntryCell Label="Summary" Text="{Binding Summary}" />
+                
+                <ViewCell>
+                    <Image Source="{Binding ReceiptImage}"/>
+                </ViewCell>
+                
+                <ViewCell>
+                    <Button Text="Pick Photo" Command="{Binding ChoosePhotoCommand}"/>
+                </ViewCell>
+                
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button x:Name="saveButton" Text="Save" Command="{Binding SaveCommand}"/>
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>
