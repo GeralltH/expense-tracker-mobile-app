@@ -34,26 +34,27 @@ namespace ExpenseTracker
             list.SelectedItem = -1;
         }
 
-        private void ClaimedSwitch_OnChanged(object sender, ToggledEventArgs e)
-        {
-            List<Expense> tmpList = new List<Expense>();
+        //Trying to work out how to filter the list 
+        //private void ClaimedSwitch_OnChanged(object sender, ToggledEventArgs e)
+        //{
+        //    List<Expense> tmpList = new List<Expense>();
 
-            if (claimedSwitch.IsEnabled)
-            {
+        //    if (claimedSwitch.IsEnabled)
+        //    {
                 
-                foreach (Expense expense in list)
-                {
-                    if (expense.Claimed == true)
-                    {
-                        tmpList.Add(expense);
-                    }
-                }
-                expenseListView.ItemsSource = tmpList;
-            }
-            else
-            {
-                expenseListView.ItemsSource = { Binding Expenses};
-            }
-        }
+        //        foreach (Expense expense in list)
+        //        {
+        //            if (expense.Claimed == true)
+        //            {
+        //                tmpList.Add(expense);
+        //            }
+        //        }
+        //        expenseListView.ItemsSource = tmpList;
+        //    }
+        //    else
+        //    {
+        //        expenseListView.ItemsSource = { Binding Expenses};
+        //    }
+        //}
     }
 }
