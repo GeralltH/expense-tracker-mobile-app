@@ -41,8 +41,8 @@ namespace ExpenseTracker
 
         //    if (claimedSwitch.IsEnabled)
         //    {
-                
-        //        foreach (Expense expense in list)
+
+        //        foreach (Expense expense in Expense)
         //        {
         //            if (expense.Claimed == true)
         //            {

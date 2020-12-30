@@ -1,34 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:behaviour="clr-namespace:ExpenseTracker.Behaviour"
+             xmlns:vm="clr-namespace:ExpenseTracker.ViewModel"
              x:Name="mainPage"
              x:Class="ExpenseTracker.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddExpenseCommand}"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="Only show claimed expenses"/>
-        <Switch x:Name="claimedSwitch" HorizontalOptions="Start" IsToggled="False"/>
+        <Button x:Name="claimedButton" Text="Claimed" HorizontalOptions="Fill"/>
         <ListView x:Name="expenseListView" ItemsSource="{Binding Expenses}" HasUnevenRows="True" SeparatorColor="Gray" ItemSelected="OnExpenseSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell x:Name="listItem" ImageSource="{Binding ReceiptImage}"
-                           Text="{Binding Title}"
-                           Detail="{Binding Claimed}"
-                           DetailColor="Black"
-                           TextColor="Red">
-                    <ImageCell.ContextActions>
-                        <MenuItem Text="Delete"
+                    <ViewCell x:Name="listItem">
+                        <ViewCell.View>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Title}" FontSize="Title"/>
+                                <Label Text="{Binding Summary}"/>
+                                <Label Text="{Binding Amount, StringFormat='Amount: {0:C}'}"/>
+                                <Label Text="{Binding ReceiptDate, StringFormat='Receipt Date: {0:dddd, dd MMMM yyyy}'}"/>
+                                <Label Text="{Binding DateAdded, StringFormat='Date Added: {0:dddd, dd MMMM yyyy}'}"/>
+                                <Label Text="{Binding Claimed, StringFormat='Claimed: {0:F0}'}"/>
+                                <Label Text="{Binding DatePaid, StringFormat='Date Paid: {0:dddd, dd MMMM yyyy}'}"/>
+                                <Image Source="{Binding ReceiptImage}" HorizontalOptions="Center"  />
+                            </StackLayout>
+                        </ViewCell.View>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete"
                                   IsDestructive="True"
                                   Command="{Binding Source={x:Reference mainPage}, Path=ViewModel.DeleteExpenseCommand}"
                                   CommandParameter="{Binding .}" />
-                            <MenuItem Text="Mark As Paid"
+                            <!--<MenuItem Text="Mark As Paid"
                                     Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.DeleteCommand}"
-                                    CommandParameter="{Binding .}"/>
-                        </ImageCell.ContextActions>
-                </ImageCell>
-            </DataTemplate>
+                                    CommandParameter="{Binding .}"/>-->
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
     </StackLayout>

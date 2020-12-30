@@ -14,35 +14,51 @@ namespace ExpenseTracker.View
             ViewModel = expenseDetailPageViewModel;
             Title = (expenseDetailPageViewModel.Summary == null) ? "New Expense" : "Edit Expense";
 
+            DateTime dateToday = DateTime.Now;
+
+            dateAddedPicker.MinimumDate = dateToday;
+            //datePaidPicker.MaximumDate = dateToday;
+
             if (Title.Equals("New Expense"))
             {
-                dateAddedPicker.Date = DateTime.Now;
-                dateAddedPicker.IsEnabled = false;
+                //dateAddedPicker.Date = DateTime.Now;
+                //dateAddedPicker.IsVisible = false;
+                //dateAddedLabel.IsVisible = true;
 
                 claimedLayout.IsVisible = false;
                 claimedLayout.HeightRequest = 0;
 
-                unpaid.IsVisible = true;
-                datePaidPicker.IsVisible = false;
+                datePaidLabel.IsVisible = false;
+                datePaidPicker.IsEnabled = false;
+
+                datePaidPicker.IsEnabled = false;
             }
 
             if (Title.Equals("Edit Expense"))
             {
-                dateAddedPicker.IsEnabled = false;
+                //If claim is paid, disables all options
+                if (claimedSwitch.IsToggled == true)
+                {
+                    titleEntry.IsEnabled = false;
+                    claimedSwitch.IsEnabled = false;
+                    VATSwitch.IsEnabled = false;
+                    receiptAmount.IsEnabled = false;
+                    receiptDatePicker.IsEnabled = false;
+                    dateAddedPicker.IsEnabled = false;
+                    datePaidPicker.IsEnabled = false;
+                    summaryEntry.IsEnabled = false;
+                    pickPhotoButton.IsEnabled = false;
+                }
             }
 
+
+
+            //Works out VAT Amount
             double fullReceiptAmount = Convert.ToDouble(receiptAmount.Text);
             double receiptVATAmount = fullReceiptAmount * 0.8;
             string VAT = receiptVATAmount.ToString();
             VATAmount.Text = "Excl. VAT: £" + receiptVATAmount.ToString("F");
 
-
-
-            string datePaid = datePaidPicker.Date.ToString();
-            //if (datePaid.Equals("1/1/0001 12:00:00 AM"))
-            //{
-            //    saveButton.IsEnabled = false;
-            //}
         }
 
         public ExpenseDetailPageViewModel ViewModel

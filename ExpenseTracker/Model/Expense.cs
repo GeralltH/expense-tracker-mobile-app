@@ -15,7 +15,7 @@ namespace ExpenseTracker.Model
         public bool VATComponent { get; set; }
         public DateTime ReceiptDate { get; set; }
         public DateTime DateAdded { get; set; }
-        public DateTime DatePaid { get; set; }
+        public DateTime? DatePaid { get; set; }
         public string Summary { get; set; }
         [MaxLength(255)]
         public string ReceiptImagePath { get; set; }

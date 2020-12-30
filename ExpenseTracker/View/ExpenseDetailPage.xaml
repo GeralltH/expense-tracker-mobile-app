@@ -7,7 +7,7 @@
         <TableRoot>
             <TableSection Title="Expense Details">
                 
-                <EntryCell Label="Title" Text="{Binding Title}" />
+                <EntryCell x:Name="titleEntry" Label="Title" Text="{Binding Title}" />
 
                 <ViewCell>
                     <StackLayout x:Name="claimedLayout">
@@ -19,7 +19,7 @@
                 <ViewCell>
                     <StackLayout>
                         <Label Text="VAT Component?"/>
-                        <Switch IsToggled="{Binding VATComponent}" HorizontalOptions="StartAndExpand"/>
+                        <Switch x:Name="VATSwitch" IsToggled="{Binding VATComponent}" HorizontalOptions="StartAndExpand"/>
                     </StackLayout>
                 </ViewCell>
 
@@ -34,33 +34,34 @@
                 <ViewCell>
                     <StackLayout>
                         <Label Text="Receipt Date"/>
-                        <DatePicker MinimumDate="01/01/2000" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding ReceiptDate}" />
+                        <DatePicker x:Name="receiptDatePicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding ReceiptDate}" />
                     </StackLayout>
                 </ViewCell>
                 
                 <ViewCell >
                     <StackLayout x:Name="dateAddedLayout">
                         <Label Text="Date Added"/>
-                        <DatePicker x:Name="dateAddedPicker" MinimumDate="{x:Static sys:DateTime.Now}" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DateAdded}"/>
+                        <Label x:Name="dateAddedLabel" Text="Today" FontSize="Large" IsVisible="false"/>
+                        <DatePicker x:Name="dateAddedPicker" MinimumDate="01/01/2020" MaximumDate="01/01/2021" Date="{Binding DateAdded}" IsEnabled="False"/>
                     </StackLayout>
                 </ViewCell>
                 
                 <ViewCell>
                     <StackLayout x:Name="datePaidLayout">
                         <Label Text="Date Paid"/>
-                        <Label x:Name="unpaid" Text="Unpaid" FontSize="Large" IsVisible="false"/>
+                        <Label x:Name="datePaidLabel" Text="Unpaid" FontSize="Large" IsVisible="false"/>
                         <DatePicker x:Name="datePaidPicker" MinimumDate="01/01/2000" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DatePaid}"/>
                     </StackLayout>
                 </ViewCell>
                 
-                <EntryCell Label="Summary" Text="{Binding Summary}" />
+                <EntryCell x:Name="summaryEntry" Label="Summary" Text="{Binding Summary}" />
                 
                 <ViewCell>
                     <Image Source="{Binding ReceiptImage}"/>
                 </ViewCell>
                 
                 <ViewCell>
-                    <Button Text="Pick Photo" Command="{Binding ChoosePhotoCommand}"/>
+                    <Button x:Name="pickPhotoButton" Text="Pick Photo" Command="{Binding ChoosePhotoCommand}"/>
                 </ViewCell>
                 
             </TableSection>

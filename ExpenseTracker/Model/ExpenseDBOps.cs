@@ -18,7 +18,7 @@ namespace ExpenseTracker.Model
 
         public async Task<List<Expense>> GetExpensesAsync()
         {
-            return await _connection.Table<Expense>().ToListAsync();
+            return await _connection.Table<Expense>().OrderBy(x=>x.DateAdded).ToListAsync();
         }
 
         public async Task DeleteExpense(Expense expense)

@@ -93,7 +93,17 @@ namespace ExpenseTracker.ViewModel
             backupExpense();
             if (string.IsNullOrWhiteSpace(_expense.Title) || string.IsNullOrWhiteSpace(_expense.Summary))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Please enter all details", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Error", "Please enter a title and summary", "Ok");
+                return;
+            }
+            if (_expense.Amount == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please enter a receipt amount", "Ok");
+                return;
+            }
+            if (_expense.Claimed == true && _expense.DatePaid == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please enter the date the claim was paid, or mark the claim as unpaid", "Ok");
                 return;
             }
 
@@ -204,7 +214,7 @@ namespace ExpenseTracker.ViewModel
             }
         }
 
-        public DateTime DatePaid
+        public DateTime? DatePaid
         {
             get { return _expense.DatePaid; }
             set
