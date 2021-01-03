@@ -14,29 +14,19 @@ namespace ExpenseTracker.View
             ViewModel = expenseDetailPageViewModel;
             Title = (expenseDetailPageViewModel.Summary == null) ? "New Expense" : "Edit Expense";
 
-            DateTime dateToday = DateTime.Now;
-
-            dateAddedPicker.MinimumDate = dateToday;
-            //datePaidPicker.MaximumDate = dateToday;
+            //Sets the date added to today 
+            dateAddedPicker.MinimumDate = DateTime.Now;
 
             if (Title.Equals("New Expense"))
             {
-                //dateAddedPicker.Date = DateTime.Now;
-                //dateAddedPicker.IsVisible = false;
-                //dateAddedLabel.IsVisible = true;
-
-                claimedLayout.IsVisible = false;
-                claimedLayout.HeightRequest = 0;
-
-                datePaidLabel.IsVisible = false;
-                datePaidPicker.IsEnabled = false;
-
+                //disables the claimed switch and the date picker for date paid
+                claimedSwitch.IsEnabled = false;
                 datePaidPicker.IsEnabled = false;
             }
 
             if (Title.Equals("Edit Expense"))
             {
-                //If claim is paid, disables all options
+                //If claim is paid, makes all options uneditable
                 if (claimedSwitch.IsToggled == true)
                 {
                     titleEntry.IsEnabled = false;
@@ -49,16 +39,13 @@ namespace ExpenseTracker.View
                     summaryEntry.IsEnabled = false;
                     pickPhotoButton.IsEnabled = false;
                 }
+
+                
             }
 
-
-
-            //Works out VAT Amount
-            double fullReceiptAmount = Convert.ToDouble(receiptAmount.Text);
-            double receiptVATAmount = fullReceiptAmount * 0.8;
-            string VAT = receiptVATAmount.ToString();
-            VATAmount.Text = "Excl. VAT: £" + receiptVATAmount.ToString("F");
-
+            //Works out VAT Amount and changes the label
+            double receiptVATAmount = Convert.ToDouble(receiptAmount.Text) - (Convert.ToDouble(receiptAmount.Text) / 1.2);
+            VATAmount.Text = "incl. £" + receiptVATAmount.ToString("F") + " VAT";
         }
 
         public ExpenseDetailPageViewModel ViewModel

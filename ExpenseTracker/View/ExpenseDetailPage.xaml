@@ -27,7 +27,7 @@
 
                 <ViewCell>
                     <StackLayout IsVisible="{Binding VATComponent}">
-                        <Label x:Name="VATAmount" Text="{Binding Amount, StringFormat='Excl. VAT: 0.8 * {0:F0}'}" Margin="18,20,0,20"/>
+                        <Label x:Name="VATAmount" Text="VAT goes here" Margin="18,20,0,20"/>
                     </StackLayout>
                 </ViewCell>
 
@@ -42,15 +42,14 @@
                     <StackLayout x:Name="dateAddedLayout">
                         <Label Text="Date Added"/>
                         <Label x:Name="dateAddedLabel" Text="Today" FontSize="Large" IsVisible="false"/>
-                        <DatePicker x:Name="dateAddedPicker" MinimumDate="01/01/2020" MaximumDate="01/01/2021" Date="{Binding DateAdded}" IsEnabled="False"/>
+                        <DatePicker x:Name="dateAddedPicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DateAdded}" IsEnabled="False"/>
                     </StackLayout>
                 </ViewCell>
                 
                 <ViewCell>
                     <StackLayout x:Name="datePaidLayout">
                         <Label Text="Date Paid"/>
-                        <Label x:Name="datePaidLabel" Text="Unpaid" FontSize="Large" IsVisible="false"/>
-                        <DatePicker x:Name="datePaidPicker" MinimumDate="01/01/2000" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DatePaid}"/>
+                        <DatePicker x:Name="datePaidPicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DatePaid}"/>
                     </StackLayout>
                 </ViewCell>
                 

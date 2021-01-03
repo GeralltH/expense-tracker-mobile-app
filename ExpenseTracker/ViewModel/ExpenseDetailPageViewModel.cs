@@ -91,22 +91,24 @@ namespace ExpenseTracker.ViewModel
         async Task Save()
         {
             backupExpense();
+            //Don't allow save if title or summary is empty
             if (string.IsNullOrWhiteSpace(_expense.Title) || string.IsNullOrWhiteSpace(_expense.Summary))
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Please enter a title and summary", "Ok");
                 return;
             }
+            //Don't allow save if receipt is 0
             if (_expense.Amount == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Please enter a receipt amount", "Ok");
                 return;
             }
+            //Don't allow save if marked as claimed but no date
             if (_expense.Claimed == true && _expense.DatePaid == null)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Please enter the date the claim was paid, or mark the claim as unpaid", "Ok");
                 return;
             }
-
             if (_expense.Id == 0)
             {
                 await _expenseStore.AddExpense(_expense);
