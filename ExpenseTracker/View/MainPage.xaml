@@ -10,22 +10,22 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddExpenseCommand}"/>
     </ContentPage.ToolbarItems>
-    <StackLayout>
-        <Button x:Name="claimedButton" Text="Claimed" HorizontalOptions="Fill"/>
-        <ListView x:Name="expenseListView" ItemsSource="{Binding Expenses}" HasUnevenRows="True" SeparatorColor="Gray" ItemSelected="OnExpenseSelected">
+    <StackLayout BackgroundColor="#4FC3F7">
+        <Button x:Name="claimedButton" Text="Claimed" BackgroundColor="#0277BD" HorizontalOptions="Fill" Margin="10" TextColor="White"/>
+        <ListView x:Name="expenseListView" ItemsSource="{Binding Expenses}" HasUnevenRows="True" SeparatorColor="#01579B" ItemSelected="OnExpenseSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                     <ViewCell x:Name="listItem">
                         <ViewCell.View>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Title}" FontSize="Title"/>
-                                <Label Text="{Binding Summary}"/>
-                                <Label Text="{Binding Amount, StringFormat='Amount: {0:C}'}"/>
-                                <Label Text="{Binding ReceiptDate, StringFormat='Receipt Date: {0:dddd, dd MMMM yyyy}'}"/>
-                                <Label Text="{Binding DateAdded, StringFormat='Date Added: {0:dddd, dd MMMM yyyy}'}"/>
-                                <Label Text="{Binding Claimed, StringFormat='Claimed: {0:F0}'}"/>
-                                <Label Text="{Binding DatePaid, StringFormat='Date Paid: {0:dddd, dd MMMM yyyy}'}"/>
-                                <Image Source="{Binding ReceiptImage}" HorizontalOptions="Center"  />
+                                <Label Text="{Binding Title}" FontSize="Title" TextColor="Black"/>
+                                <Label Text="{Binding Summary}" TextColor="Black"/>
+                                <Label Text="{Binding Amount, StringFormat='Amount: {0:C}'}" TextColor="Black"/>
+                                <Label Text="{Binding ReceiptDate, StringFormat='Receipt Date: {0:dddd, dd MMMM yyyy}'}" TextColor="Black"/>
+                                <Label Text="{Binding DateAdded, StringFormat='Date Added: {0:dddd, dd MMMM yyyy}'}" TextColor="Black"/>
+                                <Label Text="{Binding Claimed, StringFormat='Claimed: {0:F0}'}" TextColor="Black"/>
+                                <Label Text="{Binding DatePaid, StringFormat='Date Paid: {0:dddd, dd MMMM yyyy}'}" TextColor="Black"/>
+                                <Image Source="{Binding ReceiptImage}" HorizontalOptions="Center"/>
                             </StackLayout>
                         </ViewCell.View>
                         <ViewCell.ContextActions>

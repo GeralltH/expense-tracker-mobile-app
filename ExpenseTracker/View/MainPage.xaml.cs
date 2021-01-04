@@ -56,5 +56,12 @@ namespace ExpenseTracker
         //        expenseListView.ItemsSource = { Binding Expenses};
         //    }
         //}
+
+        //public List<Expense> FilterExpenses(bool claimed)
+        //{
+        //    return expenseList.Where(Expense.claimed == "True").ToList();
+        //}
+        //https://stackoverflow.com/questions/33449149/filtering-list-of-objects-based-on-string-and-bool-in-c-sharp
+
     }
 }

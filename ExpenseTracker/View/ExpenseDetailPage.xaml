@@ -3,72 +3,74 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExpenseTracker.View.ExpenseDetailPage">
-    <TableView HasUnevenRows="True" Intent="Form" Margin="16, 0">
-        <TableRoot>
-            <TableSection Title="Expense Details">
-                
-                <EntryCell x:Name="titleEntry" Label="Title" Text="{Binding Title}" />
+    <StackLayout BackgroundColor="#4FC3F7">
+    <TableView HasUnevenRows="True" Intent="Form" Margin="16, 0" BackgroundColor="#4FC3F7">
+            <TableRoot>
+                <TableSection Title="Expense Details" TextColor="Black">
+
+                <EntryCell x:Name="titleEntry" Label="Title" Text="{Binding Title}" LabelColor="Black" />
 
                 <ViewCell>
-                    <StackLayout x:Name="claimedLayout">
-                        <Label Text="Claimed?"/>
-                        <Switch x:Name="claimedSwitch" IsToggled="{Binding Claimed}" HorizontalOptions="StartAndExpand"/>
+                    <StackLayout x:Name="claimedLayout" Margin="15,0">
+                        <Label Text="Claimed?" TextColor="Black"/>
+                            <Switch x:Name="claimedSwitch" IsToggled="{Binding Claimed}" HorizontalOptions="StartAndExpand" OnColor="#0091EA" ThumbColor="#B3E5FC"/>
                     </StackLayout>
                 </ViewCell>
 
                 <ViewCell>
-                    <StackLayout>
-                        <Label Text="VAT Component?"/>
-                        <Switch x:Name="VATSwitch" IsToggled="{Binding VATComponent}" HorizontalOptions="StartAndExpand"/>
+                        <StackLayout Margin="15,0">
+                        <Label Text="VAT Component?" TextColor="Black"/>
+                            <Switch x:Name="VATSwitch" IsToggled="{Binding VATComponent}" HorizontalOptions="StartAndExpand" OnColor="#0091EA" ThumbColor="#B3E5FC"/>
                     </StackLayout>
                 </ViewCell>
 
-                <EntryCell x:Name="receiptAmount" Label="Receipt Amount: £" Keyboard="Numeric" Text="{Binding Amount}" />
+                <EntryCell x:Name="receiptAmount" Label="Receipt Amount: £" Keyboard="Numeric" Text="{Binding Amount}" LabelColor="Black"/>
 
                 <ViewCell>
                     <StackLayout IsVisible="{Binding VATComponent}">
-                        <Label x:Name="VATAmount" Text="VAT goes here" Margin="18,20,0,20"/>
+                        <Label x:Name="VATAmount" Text="VAT goes here" Margin="18,20,0,20" TextColor="Black"/>
                     </StackLayout>
                 </ViewCell>
 
                 <ViewCell>
-                    <StackLayout>
-                        <Label Text="Receipt Date"/>
-                        <DatePicker x:Name="receiptDatePicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding ReceiptDate}" />
+                        <StackLayout Margin="15,0">
+                        <Label Text="Receipt Date" TextColor="Black"/>
+                        <DatePicker x:Name="receiptDatePicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding ReceiptDate}" TextColor="Black"/>
                     </StackLayout>
                 </ViewCell>
                 
                 <ViewCell >
-                    <StackLayout x:Name="dateAddedLayout">
-                        <Label Text="Date Added"/>
-                        <Label x:Name="dateAddedLabel" Text="Today" FontSize="Large" IsVisible="false"/>
-                        <DatePicker x:Name="dateAddedPicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DateAdded}" IsEnabled="False"/>
+                        <StackLayout x:Name="dateAddedLayout" Margin="15,0">
+                        <Label Text="Date Added" TextColor="Black"/>
+                        <Label x:Name="dateAddedLabel" Text="Today" FontSize="Large" IsVisible="false" TextColor="White"/>
+                        <DatePicker x:Name="dateAddedPicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DateAdded}" IsEnabled="False" TextColor="Black"/>
                     </StackLayout>
                 </ViewCell>
                 
                 <ViewCell>
-                    <StackLayout x:Name="datePaidLayout">
-                        <Label Text="Date Paid"/>
-                        <DatePicker x:Name="datePaidPicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DatePaid}"/>
+                        <StackLayout x:Name="datePaidLayout" Margin="15,0">
+                        <Label Text="Date Paid" TextColor="Black"/>
+                        <DatePicker x:Name="datePaidPicker" MinimumDate="01/01/2020" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DatePaid}" TextColor="Black"/>
                     </StackLayout>
                 </ViewCell>
-                
-                <EntryCell x:Name="summaryEntry" Label="Summary" Text="{Binding Summary}" />
+
+                <EntryCell x:Name="summaryEntry" Label="Summary" Text="{Binding Summary}" LabelColor="Black"/>
                 
                 <ViewCell>
                     <Image Source="{Binding ReceiptImage}"/>
                 </ViewCell>
                 
                 <ViewCell>
-                    <Button x:Name="pickPhotoButton" Text="Pick Photo" Command="{Binding ChoosePhotoCommand}"/>
+                    <Button x:Name="pickPhotoButton" Text="Pick Photo" Command="{Binding ChoosePhotoCommand}" BackgroundColor="#0277BD" TextColor="White" Margin="10"/>
                 </ViewCell>
                 
             </TableSection>
             <TableSection>
                 <ViewCell>
-                    <Button x:Name="saveButton" Text="Save" Command="{Binding SaveCommand}"/>
+                    <Button x:Name="saveButton" Text="Save" Command="{Binding SaveCommand}" BackgroundColor="#0277BD" TextColor="White" Margin="10"/>
                 </ViewCell>
             </TableSection>
         </TableRoot>
     </TableView>
+    </StackLayout>
 </ContentPage>
