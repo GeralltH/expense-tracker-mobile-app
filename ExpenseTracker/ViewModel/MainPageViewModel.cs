@@ -1,5 +1,6 @@
 ﻿using ExpenseTracker.Model;
 using ExpenseTracker.View;
+using MvvmHelpers;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;

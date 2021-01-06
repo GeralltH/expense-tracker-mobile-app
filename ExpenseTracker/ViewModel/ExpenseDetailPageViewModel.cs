@@ -87,20 +87,31 @@ namespace ExpenseTracker.ViewModel
             }
         }
 
-        //Need to do this shit 
         async Task Save()
         {
             backupExpense();
-            //Don't allow save if title or summary is empty
-            if (string.IsNullOrWhiteSpace(_expense.Title) || string.IsNullOrWhiteSpace(_expense.Summary))
+            //Don't allow save if title is empty
+            if (string.IsNullOrWhiteSpace(_expense.Title))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Please enter a title and summary", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Error", "Please enter a title", "Ok");
                 return;
             }
-            //Don't allow save if receipt is 0
+            //Don't allow save if summary is empty
+            if (string.IsNullOrWhiteSpace(_expense.Summary))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please enter a summary", "Ok");
+                return;
+            }
+            //Don't allow save if receipt amount is 0
             if (_expense.Amount == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Please enter a receipt amount", "Ok");
+                return;
+            }
+            //Don't allow save if there is no receipt date
+            if (_expense.ReceiptDate == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please enter the receipt date", "Ok");
                 return;
             }
             //Don't allow save if marked as claimed but no date
@@ -196,7 +207,7 @@ namespace ExpenseTracker.ViewModel
             }
         }
 
-        public DateTime ReceiptDate
+        public DateTime? ReceiptDate
         {
             get { return _expense.ReceiptDate; }
             set

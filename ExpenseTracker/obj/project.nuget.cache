@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fVnB70kJZ4aCr0Ljp63bDrQaeyjaP4yZxjGQhxxGTIDk6KFi5hDJ1EvmsTHQUs7yAd1BaiqUbA+eX+ihb50JfA==",
+  "dgSpecHash": "g6x1J3GxNRR874uhVn2fXrSIhu7XBr1/PXOJ4uUryVn8eWs5FHC65lm15q3wZCSTzRnZrpVZjrWZ1JtF2nJRSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\gaming\\Desktop\\Uni 2020-21\\Mobile\\Assessment2\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gaming\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\gaming\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\gaming\\.nuget\\packages\\refractored.mvvmhelpers\\1.6.2\\refractored.mvvmhelpers.1.6.2.nupkg.sha512",
     "C:\\Users\\gaming\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\gaming\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\gaming\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
@@ -15,6 +16,7 @@
     "C:\\Users\\gaming\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\gaming\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\gaming\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\gaming\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
   ],
