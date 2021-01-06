@@ -13,11 +13,11 @@ namespace ExpenseTracker.Model
         public bool Claimed { get; set; }
         public decimal Amount { get; set; }
         public bool VATComponent { get; set; }
-        public DateTime ReceiptDate { get; set; }
+        public DateTime? ReceiptDate { get; set; }
         public DateTime DateAdded { get; set; }
         public DateTime? DatePaid { get; set; }
         public string Summary { get; set; }
-        [MaxLength(255)]
+        [MaxLength(100)]
         public string ReceiptImagePath { get; set; }
     }
 }

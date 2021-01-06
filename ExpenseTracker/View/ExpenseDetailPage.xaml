@@ -28,7 +28,7 @@
 
                 <ViewCell>
                     <StackLayout IsVisible="{Binding VATComponent}">
-                        <Label x:Name="VATAmount" Text="VAT goes here" Margin="18,20,0,20" TextColor="Black"/>
+                        <Label x:Name="VATAmount" Text="VAT goes here" Margin="18,10,0,10" TextColor="Black"/>
                     </StackLayout>
                 </ViewCell>
 
