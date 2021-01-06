@@ -5,6 +5,7 @@ public class MonoPackageManager_Resources {
 		"ExpenseTracker.Android.dll",
 		"ExpenseTracker.dll",
 		"FormsViewGroup.dll",
+		"MvvmHelpers.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

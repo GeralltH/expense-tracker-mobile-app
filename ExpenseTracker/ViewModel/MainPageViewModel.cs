@@ -1,6 +1,5 @@
 ﻿using ExpenseTracker.Model;
 using ExpenseTracker.View;
-using MvvmHelpers;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -23,18 +22,14 @@ namespace ExpenseTracker.ViewModel
         public ICommand DeleteExpenseCommand { get; private set; }
         public ICommand ClaimedExpensesCommand { get; private set; }
 
-
         public MainPageViewModel()
         {
             _expenseStore = new ExpenseDBOps();
-
             LoadDataCommand = new Command(async () => await LoadData());
             AddExpenseCommand = new Command(async () => await AddExpense());
             SelectExpenseCommand = new Command<ExpenseDetailPageViewModel>(async c => await SelectExpense(c));
             DeleteExpenseCommand = new Command<ExpenseDetailPageViewModel>(async c => await DeleteExpense(c));
             ClaimedExpensesCommand = new Command(ClaimedExpenses);
-
-
 
             MessagingCenter.Subscribe<ExpenseDetailPageViewModel, Expense>
                 (this, "ExpenseAdded", OnExpenseAdded);
@@ -46,8 +41,6 @@ namespace ExpenseTracker.ViewModel
                 return;
             _isDataLoaded = true;
             var expenses = await _expenseStore.GetExpensesAsync();
-            //foreach (var expense in expenses)
-            //    Expenses.Add(new ExpenseDetailPageViewModel(expense));
 
             foreach (var expense in expenses)
             {

@@ -11,7 +11,10 @@
         <ToolbarItem Text="Add" Command="{Binding AddExpenseCommand}"/>
     </ContentPage.ToolbarItems>
     <StackLayout BackgroundColor="#4FC3F7">
-        <Button x:Name="claimedButton" Text="Claimed" BackgroundColor="#0277BD" HorizontalOptions="Fill" Margin="10" TextColor="White"/>
+        <StackLayout Margin="15,0">
+            <Label Text="Claimed?" FontSize="Medium" TextColor="Black"/>
+            <Switch x:Name="claimedSwitch" IsToggled="{Binding Claimed}" HorizontalOptions="StartAndExpand" OnColor="#0091EA" ThumbColor="#B3E5FC"/>
+        </StackLayout>
         <ListView x:Name="expenseListView" ItemsSource="{Binding Expenses}" HasUnevenRows="True" SeparatorColor="#01579B" ItemSelected="OnExpenseSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -33,9 +36,7 @@
                                   IsDestructive="True"
                                   Command="{Binding Source={x:Reference mainPage}, Path=ViewModel.DeleteExpenseCommand}"
                                   CommandParameter="{Binding .}" />
-                            <!--<MenuItem Text="Mark As Paid"
-                                    Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.DeleteCommand}"
-                                    CommandParameter="{Binding .}"/>-->
+                            <MenuItem Text="Mark As Paid"/>
                         </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>
